@@ -1,0 +1,43 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to top, var(--major-bg) , var(--major-bg-dark) );
+    text-align: center;
+}
+
+.title {
+    margin-top: 100px;
+    margin-inline: 80px;
+    font-size: 2.25em;
+    transform: scalex(1.3);    
+}
+
+.desc {
+    font-size: 1.5em;
+    color:  forestgreen;
+    font-weight: 400;
+    width: 70%;
+}
+
+@media only screen and (max-width:770px) {
+    .title {
+        font-size: 1.5em;
+        transform: scalex(1.3);    
+    }    
+    .desc {
+        font-size: 1em;
+    } 
+}
+
+.grid_wrapper {
+    margin-top: 100px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-right: 20px;
+}

@@ -2,8 +2,20 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  -webkit-font-smoothing: antialiased;
+  font-family: "Rubik", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background: var(--major-bg);
+}
+
+@font-face {
+  font-family: "Splash";
+  src: url(../public/fonts/Splash-Regular.ttf);
+
+}
+@font-face {
+  font-family: "Rubik";
+  src: url(../public/fonts/Rubik-VariableFont_wght.ttf);
 }
 
 a {
@@ -14,3 +26,53 @@ a {
 * {
   box-sizing: border-box;
 }
+
+:root {
+  --main-color:  #d4a373;
+  --secondary-color: #9a031e;
+  --font-white: #ffffff;
+  --major-bg: #faf4d3;
+  --major-bg-dark:#faf1c1;
+}
+
+
+.logo {
+  color: #d8fa08;
+  font-family: "Splash", Arial, Helvetica, sans-serif ;
+  font-weight: larger;
+  font-size: 38px;
+  line-height: 20px;
+  margin: 10px 0 0 0;
+  position: relative;
+  z-index: 10;
+}
+.logo span {
+  font-size: 18px;
+  padding-left: 60px;
+}
+
+.logo:after {
+  z-index: -1;
+  position: absolute;
+  content: "";
+  width: 130px;
+  height: 80px;
+  transform: skew(-45deg, 15deg);
+  border-radius: 47%;
+  top: -20px;
+  left: -5px;
+  background: #0f1111
+}
+
+ /* pizza slice
+.logo:after {
+  z-index: -1;
+  position: absolute;
+  content: "";
+  width: 300px;
+  height: 170px;
+  border-radius: 50%;
+  top: -25px;
+  left: -130px;
+  background: conic-gradient(#af4153e6 21.5%, transparent 0 100%);
+} */
