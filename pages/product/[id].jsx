@@ -29,7 +29,7 @@ const Product = () => {
           <span className={styles.price}>
             <Image
               className={styles.cross}
-              src="/images/cross.svg"
+              src="/icons/cross.svg"
               layout="fill"
               alt=""
               style={{ opacity: 0.5 }}
@@ -41,15 +41,15 @@ const Product = () => {
           <h3 className={styles.choose}>Choose the size</h3>
           <div className={styles.sizes}>
             <div className={styles.size} onClick={() => setSize(0)}>
-              <Image src="/images/small-size.svg" alt="" layout="fill" />
+              <Image src="/icons/small-size.svg" alt="" layout="fill" />
               <span className={styles.number}>Small</span>
             </div>
             <div className={styles.size} onClick={() => setSize(1)}>
-              <Image src="/images/medium-size.svg" alt="" layout="fill" />
+              <Image src="/icons/medium-size.svg" alt="" layout="fill" />
               <span className={styles.number}>Medium</span>
             </div>
             <div className={styles.size} onClick={() => setSize(2)}>
-              <Image src="/images/larger-size.svg" alt="" layout="fill" />
+              <Image src="/icons/larger-size.svg" alt="" layout="fill" />
               <span className={styles.number}>Large</span>
             </div>
           </div>

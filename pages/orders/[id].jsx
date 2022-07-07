@@ -8,7 +8,6 @@ const Order = () => {
         if (number - status < 1 ) return styles.done
         if (number - status === 1 ) return styles.inProgress
         if (number - status > 1 ) return styles.waiting
-        
     }
 
   return (
@@ -40,12 +39,12 @@ const Order = () => {
             </div>
             <div className={styles.row}>
                 <div className={handleStatus(0)}>
-                    <Image src="/images/paid.svg" width={30} height={30} alt="" />
+                    <Image src="/icons/paid.svg" width={30} height={30} alt="" />
                     <span>Payment</span>
                     <div className={styles.checkedIcon}>
                         <Image
                             className={styles.checkedIcon}
-                            src="/images/checked.svg"
+                            src="/icons/checked.svg"
                             width={20}
                             height={20}
                             alt=""
@@ -53,12 +52,12 @@ const Order = () => {
                     </div>
                 </div>
                 <div className={handleStatus(1)}>
-                    <Image src="/images/preparing.svg" width={30} height={30} alt="" />
+                    <Image src="/icons/preparing.svg" width={30} height={30} alt="" />
                     <span>Preparing</span>
                     <div className={styles.checkedIcon}>
                         <Image
                             className={styles.checkedIcon}
-                            src="/images/checked.svg"
+                            src="/icons/checked.svg"
                             width={20}
                             height={20}
                             alt=""
@@ -66,12 +65,12 @@ const Order = () => {
                     </div>
                 </div>
                 <div className={handleStatus(2)}>
-                    <Image src="/images/delivery-motorbike.svg" width={30} height={30} alt="" />
+                    <Image src="/icons/delivery-motorbike.svg" width={30} height={30} alt="" />
                     <span>On the way</span>
                     <div className={styles.checkedIcon}>
                         <Image
                             className={styles.checkedIcon}
-                            src="/images/checked.svg"
+                            src="/icons/checked.svg"
                             width={20}
                             height={20}
                             alt=""
@@ -79,12 +78,12 @@ const Order = () => {
                     </div>
                 </div>
                 <div className={handleStatus(3)}>
-                    <Image src="/images/delivered.svg" width={30} height={30} alt="" />
+                    <Image src="/icons/delivered.svg" width={30} height={30} alt="" />
                     <span>Delivered</span>
                     <div className={styles.checkedIcon}>
                         <Image
                             className={styles.checkedIcon}
-                            src="/images/checked.svg"
+                            src="/icons/checked.svg"
                             width={20}
                             height={20}
                             alt=""

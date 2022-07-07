@@ -33,11 +33,12 @@ a {
   --font-white: #ffffff;
   --major-bg: #faf4d3;
   --major-bg-dark:#faf1c1;
+  --logo-yellow:  #d8fa08;
 }
 
 
 .logo {
-  color: #d8fa08;
+  color: var(--logo-yellow);
   font-family: "Splash", Arial, Helvetica, sans-serif ;
   font-weight: larger;
   font-size: 38px;
@@ -47,6 +48,9 @@ a {
   z-index: 10;
 }
 .logo span {
+  position: absolute;
+  left: 0;
+  top: 23px;
   font-size: 18px;
   padding-left: 60px;
 }
