@@ -58,13 +58,13 @@ const Footer = () => {
       <div className={styles.signiture}>
         <div>
             <a href="https://github.com/cory-sydn">Terms of Service</a>
-            <span aria-hidden="true">&nbsp; &bull;  &nbsp;</span>
+            <span aria-hidden="true">&nbsp;&bull;&nbsp;</span>
             <a href="https://github.com/cory-sydn">Privacy Policy</a>
         </div>
         <div>
-            <i >Made With<span>&nbsp; &#9829;</span></i>
+            <i>Made With<span>&nbsp;&#9829;</span></i>
         </div>
-        <div><a href="https://github.com/cory-sydn" target="_blank">©<span class="footer-date"></span>&nbsp;Copyright &ensp;<span class="signiture">Koray Soydan</span></a></div>
+        <div><a href="https://github.com/cory-sydn" target="_blank">©<span></span>&nbsp;Copyright &ensp;<span>Koray Soydan</span></a></div>
       </div>
     </div>
   )
