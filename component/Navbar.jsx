@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import styles from "../styles/Navbar.module.css";
 import Image from "next/image";
 import MobileMenu from "./MobileMenu";
+import { useSelector } from "react-redux";
+import Link from "next/link";
+
 
 const Navbar = () => {
   const [clientWindowHeight, setClientWindowHeight] = useState("");
@@ -9,10 +12,11 @@ const Navbar = () => {
   const [boxShadow, setBoxShadow] = useState(30);
   const [textShadow, setTextShadow] = useState("0 1px 1px #0f1111");
   const [fontColor, setfontColor] = useState("#fff");
-  // const [menuStatus, setMenuStatus] = useState(0)
   const [clientWindowWidth, setClientWindowWidth] = useState();
   const [menuStatus, setMenuStatus] = useState(0);
   const [displayStatus, setDisplayStatus] = useState("none");
+
+  const cartQuantity = useSelector(state => state.cart.quantity)
 
   const handleScroll = () => {
     setClientWindowHeight(window.scrollY);
@@ -136,15 +140,17 @@ const Navbar = () => {
           </ul>
         </div>
         <div className={styles.item}>
-          <div className={styles.cart}>
-            <Image
-              src="/images/cart.png"
-              width="42px"
-              height="42px"
-              alt="call"
-            />
-            <div className={styles.counter}>0</div>
-          </div>
+          <Link href="/cart" passHref>
+            <div className={styles.cart}>
+              <Image
+                src="/images/cart.png"
+                width="42px"
+                height="42px"
+                alt="call"
+              />
+              <div className={styles.counter}>{cartQuantity}</div>
+            </div>
+          </Link>
           <div style={{ display: `${displayStatus}` }}>
             <Image
               className={styles.hamburger}
