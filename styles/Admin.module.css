@@ -1,0 +1,45 @@
+.container {
+    display: flex;
+    padding: 50px;
+}
+
+.item {
+    flex: 1;
+}
+
+.table {
+    width: 100%;
+    border-spacing: 20px;
+    text-align: left;
+}
+/* .tbody {
+    height: 64px;
+    text-align: start;
+} */
+
+.container button {
+    color: white;
+    background: var(--secondary-color);
+}
+
+.button {
+    min-width: 79px;
+    margin-block: 2px;
+    padding: 15px 5px;
+}
+
+.button:first-child {
+    background: teal;
+    margin-right: 10px;
+}
+
+.stage {
+    background: var(--secondary-color);
+    padding: 15px 20px;
+}
+
+@media only screen and (max-width: 1024px) {
+    .container button  {
+        padding: 5px;
+    }
+}
