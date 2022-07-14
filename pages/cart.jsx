@@ -7,18 +7,25 @@ import {
     PayPalButtons,
     usePayPalScriptReducer
 } from "@paypal/react-paypal-js";
-import handler from './api/orders';
-
+import { useRouter } from 'next/router';
+import { reset } from '../redux/cartSlice';
+import axios from 'axios';
+import { v4 as uuidv4 } from 'uuid'
+import OrderDetail from '../component/OrderDetail';
 
 
 const Cart = () => {
     const [open, setOpen] = useState(false)
-    const dispatch = useDispatch()    
+    const [cash, setCash] = useState(false)
+    const dispatch = useDispatch()
+    const router = useRouter()
     const cart = useSelector(state => state.cart)
 
     const createOrder = async (data) => {
         try {
-            dispatch(handler(data))
+            const res = await axios.post("http://localhost:3000/api/orders", data)
+            res.status === 201 && router.push("/orders/"+ res.data._id)
+            dispatch(reset())
         } catch (err) {
             console.log(err);
         }
@@ -73,6 +80,11 @@ const Cart = () => {
                         return actions.order.capture().then(function (details) {
                             console.log(details);
                             const shipping = details.purchase_units[0].shipping;
+                            createOrder({
+                                customer:shipping.name.full_name, 
+                                address:shipping.address.address_line_1, 
+                                total:amount, method:1 
+                            })
                         });
                     }}
                 />
@@ -97,7 +109,7 @@ const Cart = () => {
                 </tbody>
                 <tbody>                    
                     {cart.products.map(product => (
-                        <tr key={product._id}>
+                        <tr key={uuidv4()}>
                             <td>
                             <div className={styles.imgContainer}>
                                 <Image className={styles.imgContainer} src={product.img} alt='' objectFit='cover' objectPosition="center" layout='fill' />
@@ -131,17 +143,17 @@ const Cart = () => {
             <div className={styles.wrapper}>
                 <h2 className={styles.title}>CART TOTAL</h2>
                 <div className={styles.totalText}>
-                    <b className={styles.totalTextTitle}>Subtotal:</b>${cart.total.toFixed(2)}
+                    <b className={styles.totalTextTitle}>Subtotal:</b>${amount}
                 </div>
                 <div className={styles.totalText}>
                     <b className={styles.totalTextTitle}>Discount:</b>$0.00
                 </div>
                 <div className={styles.totalText}>
-                    <b className={styles.totalTextTitle}>Total:</b>${cart.total.toFixed(2)}
+                    <b className={styles.totalTextTitle}>Total:</b>${amount}
                 </div>
                 {open ? (
                     <div className={styles.paymentMethods}>
-                        <button className={styles.cashButton}>
+                        <button className={styles.cashButton} onClick={() => setCash(true)} >
                             CASH ON DELİVERY
                         </button>
                         <PayPalScriptProvider
@@ -164,6 +176,9 @@ const Cart = () => {
                 }
             </div>
         </div>
+        {cash && (
+            <OrderDetail total={amount} createOrder={createOrder} />
+        )}
     </div>
   )
 }

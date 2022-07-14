@@ -57,7 +57,7 @@
     opacity: 0.2;
 }
 
-.undone .checkedIcon, .inProgress .checkedIcon {
+.waiting .checkedIcon, .inProgress .checkedIcon {
     opacity: 0;
 }
 

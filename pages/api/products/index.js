@@ -4,7 +4,7 @@ import Product from '../../../models/Product'
 export default async function handler(req, res) {
     const { method } = req
 
-    dbConnect()
+    await dbConnect()
 
     if(method === "GET") {
         try {
@@ -12,7 +12,7 @@ export default async function handler(req, res) {
             res.status(200).json(products)
         } catch (err) {
             res.status(500).json(err)
-            console.error(err);
+            console.error(product.config);
             if (err.response) {
                 // The client was given an error response (5xx, 4xx)
                 console.error(err.response);
