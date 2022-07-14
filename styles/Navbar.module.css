@@ -71,22 +71,20 @@
 }
 
 .cart {
-    filter: invert(100%);
+    padding: 10px;
     cursor: pointer;
+    z-index: 15;
+    position: relative;
 }
 
 .counter {
-    display: flex;
-    filter: invert(100%);
-    color: #fff;
-    text-align: center;
+    font-size: 14px;
+    font-weight: 900;
+    color: var(--logo-yellow);
     position: absolute;
-    right:13px;
-    top: 8px;
-    font-weight: bolder;
+    right:23px;
+    top: 19px;
 }
-
-
 .hamburger {
     filter:invert(90%) drop-shadow(0 1px 1px #0006 ) ;
     display: none;

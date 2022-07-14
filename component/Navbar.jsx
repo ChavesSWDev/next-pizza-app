@@ -126,7 +126,9 @@ const Navbar = () => {
         </div>
         <div className={styles.item}>
           <ul className={styles.list}>
-            <li className={styles.listItem}>Homepage</li>
+            <Link href="/" passHref >
+              <li className={styles.listItem}>Homepage</li>
+            </Link>
             <li className={styles.listItem}>Products </li>
             <li className={styles.listItem}>Menu</li>
             <p className="logo">
@@ -143,7 +145,7 @@ const Navbar = () => {
           <Link href="/cart" passHref>
             <div className={styles.cart}>
               <Image
-                src="/images/cart.png"
+                src="/images/cart1.svg"
                 width="42px"
                 height="42px"
                 alt="call"

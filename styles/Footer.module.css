@@ -78,6 +78,7 @@
 }
 .card:first-child {
     width: 75%;
+    padding-left: 20px;
 }
 .card:last-child {
     width: 25%;

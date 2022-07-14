@@ -27,6 +27,13 @@ a {
   box-sizing: border-box;
 }
 
+button {
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+
+}
+
 :root {
   --main-color:  #d4a373;
   --secondary-color: #9a031e;
@@ -43,7 +50,7 @@ a {
   font-weight: larger;
   font-size: 38px;
   line-height: 20px;
-  margin: 10px 0 0 0;
+  margin: 10px 0 0 10px;
   position: relative;
   z-index: 10;
 }
