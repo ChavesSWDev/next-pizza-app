@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    place-content: center;
+    padding: 50px;
+    width: 100%;
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+}
+
+.input {
+    border: 2px solid var(--main-color);
+    border-radius: 5px;
+    padding: 13px 15px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.button {
+    margin-top: 10px;
+    color: var(--font-white);
+    font-weight: 600;
+    padding: 15px 10px;
+    background: var(--secondary-color);
+}
+
+.error {
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+    font-size: 14px;
+    color: red;
+}
