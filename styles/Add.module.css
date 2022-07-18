@@ -1,0 +1,104 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    background: #fff6;
+    position: fixed;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--font-white);
+    overflow-y: scroll;
+}
+
+.wrapper {
+    position: relative;
+    width: 80%;
+    padding: 20px;
+    border-radius: 5px 40px 5px 5px;
+    background: #0f1111;
+    display: flex;
+    flex-direction: column;
+}
+
+.addButton {
+    background: teal;
+    color: var(-font-white);
+    font-weight: 600;
+    padding: 15px;
+    margin: 20px;
+    min-width: 180px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.close {
+    cursor: pointer;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: xx-large;
+    right: 0;
+    top: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #000;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.label{
+    margin-top: 5px;
+}
+
+.input {
+    padding: 5px 10px;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid var(--secondary-color);
+    background: #0d0e0e;
+    color: var(--logo-yellow);
+}
+
+.input::placeholder {
+    color: white;
+}
+
+.inputSm {
+    width: 40%;
+    margin-inline: 5%;
+}
+
+.extraButton {
+    width: 100%;
+    margin: 5px 0 15px 0;
+    padding: 10px 0;
+    background: var(--secondary-color);
+    font-weight: 600;
+    color: var(--font-white);
+}
+
+.displayExtraOptions {
+    color: var(--font-white);
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.displayExtraItem {
+    padding: 1px 5px;
+    border-radius: 5px;
+    background: teal;
+    margin: 0 5px 5px 5px;
+    width: max-content;
+}

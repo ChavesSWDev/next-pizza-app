@@ -1,21 +1,37 @@
 .container {
     display: flex;
-    padding: 50px;
+    padding: 30px 50px;
+    flex-wrap: wrap;
 }
 
 .item {
+    margin-block: 20px;
     flex: 1;
+    border-left: 1px solid var(--secondary-color);
+    border-radius: 23px;
 }
 
 .table {
     width: 100%;
-    border-spacing: 20px;
+    border-spacing: 0 20px;
     text-align: left;
 }
-/* .tbody {
-    height: 64px;
-    text-align: start;
-} */
+
+.tr {
+    background: #44557738;
+}
+
+.tr td p{
+    min-width: max-content;
+}
+
+.id {
+    font-size: 0.75em;
+}
+
+.imgContainer {
+    display: flex;
+}
 
 .container button {
     color: white;
@@ -41,5 +57,11 @@
 @media only screen and (max-width: 1024px) {
     .container button  {
         padding: 5px;
+    }
+}
+
+@media only screen and (min-width: 890px) {
+    .item + .item {
+        margin-left: 30px;
     }
 }
