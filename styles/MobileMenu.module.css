@@ -49,12 +49,15 @@
 .cross {
     position: absolute;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
     top: 40px;
     right: 50px;
-    display: block;
-    width: 35px;
-    height: 35px;
-    object-fit: scale-down;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #0009;
 }
 
 @-webkit-keyframes scale-in-hor-left {

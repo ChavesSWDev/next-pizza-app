@@ -51,7 +51,7 @@ const Index = ({products, orders }) => {
                                 <td className={styles.imgContainer}>
                                     <Image src={product.img}  width={60} height={60} objectFit="cover" alt="" />
                                 </td>
-                                <td className={styles.id}>...{product._id.slice(19, 24)}</td>
+                                <td className={styles.id}>...{product._id.slice(-6)}</td>
                                 <td><p>{product.title}</p></td>
                                 <td>[${product.prices[0].old}] ${product.prices[0].new}</td>
                                 <td>
@@ -79,7 +79,7 @@ const Index = ({products, orders }) => {
                     {orderList.map((order) => (
                         <tbody className={styles.tbody} key={order._id} >
                             <tr className={styles.tr}>
-                                <td className={styles.id}>...{order._id.slice(19,24)}</td>
+                                <td className={styles.id}>...{order._id.slice(-6)}</td>
                                 <td>{order.customer}</td>
                                 <td>${order.total}</td>
                                 <td>{order.method === 0 ? (<span>Cash</span>) : (<span>Paid</span>) } </td>

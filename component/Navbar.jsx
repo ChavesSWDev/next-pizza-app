@@ -42,13 +42,14 @@ const Navbar = () => {
       return (
         setBackgroundTransparacy(1),
         setTextShadow("none"),
-        setfontColor("#9a031e")
+        setfontColor("#9a031e"),
+        setBoxShadow(30)
       );
 
     setTextShadow("0 1px 1px #0f1111");
     setfontColor("#fff");
     setBackgroundTransparacy(clientWindowHeight);
-    setBoxShadow(clientWindowHeight / 4);
+    setBoxShadow(clientWindowHeight / 3);
   }, [clientWindowHeight]);
 
   const handleMenuStatus = () => {
@@ -92,7 +93,7 @@ const Navbar = () => {
         className={styles.menu}
         style={{ display: `${menuStatus ? "none" : "flex"}`,
         background: `rgba(212, 163, 115, ${backgroundTransparacy})`,
-        boxShadow: `0 0 1px 2px rgb(0 0 0 / ${boxShadow}%)`,
+        boxShadow: `0 0 1px 5px rgb(0 0 0 / ${boxShadow}%)`,
         textShadow: `${textShadow}`,
         color: `${fontColor}`,
        }}
@@ -134,7 +135,7 @@ const Navbar = () => {
             <p className="logo">
               Alfonso
               <br />
-              <span>'s pizza</span>{" "}
+              <span>'s pizza</span>
             </p>
             <li className={styles.listItem}>Events</li>
             <li className={styles.listItem}>Blog</li>
@@ -148,15 +149,15 @@ const Navbar = () => {
                 src="/images/cart1.svg"
                 width="42px"
                 height="42px"
-                alt="call"
+                alt="cart"
               />
               <div className={styles.counter}>{cartQuantity}</div>
             </div>
           </Link>
           <div style={{ display: `${displayStatus}` }}>
             <Image
-              className={styles.hamburger}
-              src="/icons/hamburger-menu.svg"
+              className={styles.burger}
+              src="/icons/burger-menu.svg"
               onClick={handleMenuStatus}
               width={50}
               height={50}

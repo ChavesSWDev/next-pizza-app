@@ -111,9 +111,9 @@ const Cart = () => {
                     {cart.products.map(product => (
                         <tr key={uuidv4()}>
                             <td>
-                            <div className={styles.imgContainer}>
-                                <Image className={styles.imgContainer} src={product.img} alt='' objectFit='cover' objectPosition="center" layout='fill' />
-                            </div>
+                                <div className={styles.imgContainer}>
+                                    <Image className={styles.imgContainer} src={product.img} alt='' objectFit='cover' objectPosition="center" layout='fill' />
+                                </div>
                             </td>
                             <td>
                                 <span className={styles.name}>{product.title}</span>
@@ -167,7 +167,7 @@ const Cart = () => {
                         <ButtonWrapper
                             currency={currency}
                             showSpinner={false}
-                            />
+                        />
                         </PayPalScriptProvider>                    
                     </div>
                     )   :  (

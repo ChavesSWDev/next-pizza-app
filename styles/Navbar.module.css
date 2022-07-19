@@ -9,12 +9,12 @@
 }
 
 .menu {
+    background: var(--main-color);
     width: 100%;
     justify-content: space-between;
     align-items: center;
     color: var(--font-white);
     transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1);
-    background: var(--main-color);
     box-shadow: 0 0 2px 5px rgb(0 0 0 / 0);
     padding: 0 50px;
 }
@@ -23,7 +23,7 @@
     flex: 1;
     display: flex;
     align-items: center;
-    min-width: 120px;
+    min-width: 6.6em;
 }
 
 .callButton {
@@ -42,14 +42,14 @@
 }
 
 .texts {
-    margin-left: 20px;   
+    margin-left: 1.25em;   
 }
 .text:first-child {
-    font-size: 12px;
+    font-size: .67em;
     font-weight: 500;
 }
 .text:last-child {
-    font-size: 20px;
+    font-size: 1.25em;
     font-weight: bold;
 }
 
@@ -85,7 +85,7 @@
     right:23px;
     top: 19px;
 }
-.hamburger {
+.burger {
     filter:invert(90%) drop-shadow(0 1px 1px #0006 ) ;
     display: none;
     justify-content: flex-end;
@@ -103,7 +103,7 @@
 }
 
 @media only screen and (max-width: 1024px) {
-    .hamburger {
+    .burger {
         display: flex;
     }
     .item:nth-child(2) {
@@ -118,3 +118,14 @@
     }
 }
 
+@media only screen and (max-width: 655px) {
+    .container {
+        font-size: 14px;
+    }
+    .menu {
+        padding: 0 20px;
+    }
+    .item {
+        min-width: none;
+    }
+}

@@ -63,6 +63,7 @@ const Product = ({pizza}) => {
             <Image
               className={styles.cross}
               src="/icons/cross.svg"
+              objectFit="cover"
               layout="fill"
               alt=""
               style={{ opacity: 0.5 }}

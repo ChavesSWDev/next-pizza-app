@@ -32,16 +32,15 @@ const Featured = () => {
         <Image className={styles.arrow} src="/icons/arrow-ios-back.svg" layout='fill' alt="back" />
       </div>
       <div className={styles.wrapper}>
-        <h2>Think. Feel. Pizza.</h2>
+        <h2 className={styles.title}>Think. Feel. Pizza.</h2>
         <p>Beautiful, Italian Sourced & Freshly Made Pizzas</p>
           {           
               (<Image className={styles.hero} src={images[heroIndex]} key={heroIndex}  placeholder="blur" blurDataURL="/images/dumy-pizza.jpeg" layout="fill" alt="hero" />)
           }
         <div className={styles.mobiles}>
           <Image className={styles.mobile} src="/icons/app-store.svg" width="185" height="60" layout='fixed' alt='app store' />
-          <Image className={styles.mobile} src="/icons/gplay.svg" layout="fixed" width="205" height="60" style={{marginLeft:10}} alt='google lay'/>
+          <Image className={styles.mobile} src="/icons/gplay.svg" layout="fixed" width="205" height="60" style={{marginLeft:10}} alt='google play'/>
         </div>
-
       </div>
       <div className={styles.arrow_container} style={{right:0}} onClick={nextSlide} >
         <Image className={styles.arrow} src="/icons/arrow-ios-forward.svg" layout="fill"  alt="forward" />

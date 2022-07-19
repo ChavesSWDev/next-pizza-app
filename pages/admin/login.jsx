@@ -21,7 +21,7 @@ const Login = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.wrapper}>
+      <form className={styles.wrapper} onSubmit={(e) => e.preventDefault()}>
         <h1>Admin Dashboard</h1>
         <input
           type="text" 
@@ -45,7 +45,7 @@ const Login = () => {
           Sign In
         </button>
         {error && <span className={styles.error} >"Wrong Creadentials"</span>}
-      </div>
+      </form>
     </div>
   )
 }
