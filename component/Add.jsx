@@ -10,6 +10,7 @@ const Add = ({setOpen}) => {
     const [prices, setPrices] = useState([])
     const [extra, setExtra] = useState(null)
     const [extraOptions, setExtraOptions] = useState([])
+    const [loading, setLoading] = useState(false)
     
     const changePrice = (e, i) => {
         const currentPrices = prices
@@ -18,8 +19,14 @@ const Add = ({setOpen}) => {
     }
 
     const handleExtraInput = (e) => {
+        if (e.target.value < 1) return
         setExtra({...extra, [e.target.name]: e.target.value})
     };
+
+    const handleRemove = (element) => {
+        const newList = extraOptions.filter(option => option !== element )
+        setExtraOptions(newList)
+    }
 
     const handleExtra = () => {
         if(extra === null) return
@@ -28,12 +35,13 @@ const Add = ({setOpen}) => {
         setExtraOptions(prev => [...prev, extra])
     }
 
-    const handleCreate = async(e) => {
+    const handleCreate = async() => {
+        setLoading(true)
         const data = new FormData();
         data.append("file", file);
         data.append("upload_preset", "storage")
         try {
-            const uploadRes = await  axios.post(
+            const uploadRes = await axios.post(
                 "https://api.cloudinary.com/v1_1/dyv2ytol5/upload",
                 data
             );
@@ -79,7 +87,7 @@ const Add = ({setOpen}) => {
                         htmlFor="file"
                         >Choose an image</label>
                     <input
-                        className={styles.input}
+                        className={`${styles.input} ${styles.upload}`}
                         type="file" 
                         onChange={(e) => setFile(e.target.files[0])}
                         required 
@@ -108,7 +116,7 @@ const Add = ({setOpen}) => {
                         placeholder="Description"
                         rows={4}                    
                         type="text" 
-                        onChange={(e) => setDesc(e.target.value) }
+                        onChange={(e) => setDesc(e.target.value)}
                     />
                 </div>
                 <div className={styles.item}>
@@ -174,20 +182,22 @@ const Add = ({setOpen}) => {
                     >Extra</label>
                     <div className={styles.extra} >
                         <input
-                            className={`${styles.input} ${styles.inputSm}`}
+                            className={`${styles.input} ${styles.extraInput}`}
                             placeholder="item"
                             type="text"
+                            enterKeyHint="send"
                             name='text'
                             onChange={handleExtraInput}
-                            required
                         />
                         <input
-                            className={`${styles.input} ${styles.inputSm}`}
+                            className={`${styles.input} ${styles.extraInput}`}
                             placeholder='price'
                             type="number"
                             name='price'
-                            onChange={handleExtraInput}
-                            required 
+                            enterKeyHint="send"
+                            min={1}
+                            max={10}
+                            onChange={handleExtraInput} 
                         />
                         <button  
                             className={styles.extraButton}
@@ -197,13 +207,19 @@ const Add = ({setOpen}) => {
                     </div>
                     <div className={styles.displayExtraOptions}>
                         Extras &#10159;&emsp;
-                        {extraOptions[0] === null ? ("") : (extraOptions.map((el) => (
-                            <span
-                                key={uuidv4().slice(24,38)}
-                                >
-                                    <p className={styles.displayExtraItem}>{el.text}: ${el.price}</p>
+                        {extraOptions.map((el) => (
+                            <span key={uuidv4()}>
+                                <p className={styles.displayExtraItem}>
+                                    {el.text}: ${el.price}
+                                    <button 
+                                        className={styles.removeExtraBtn}
+                                        onClick={() => handleRemove(el)}
+                                    >
+                                        <span>&#735;</span> 
+                                    </button>
+                                </p>                                
                             </span>
-                        )))}
+                        ))}
                     </div>
                 </div>
                 <button
@@ -213,6 +229,7 @@ const Add = ({setOpen}) => {
                     Create&emsp;&#10024;
                 </button>
             </form>
+            {loading && <span className="loading"></span>}
         </div>
     )
 }

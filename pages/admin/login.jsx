@@ -7,12 +7,14 @@ const Login = () => {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const [error, setError] = useState(false)
+  const [pass, setPass] = useState(false)
   const router = useRouter()
 
   const handleClick = async () => {
     try {
       await axios.post("http://localhost:3000/api/login", { username, password})
       router.push("/admin")
+      setPass(true)
     } catch (err) {
       console.log(err);
       setError(true)
@@ -44,7 +46,9 @@ const Login = () => {
         >
           Sign In
         </button>
-        {error && <span className={styles.error} >"Wrong Creadentials"</span>}
+        {error && <span className={`${styles.msg} ${styles.error}`}>Wrong Creadentials!</span>}
+        {pass && <span className={`${styles.msg} ${styles.pass}`}>Welcome Back Admin</span>}
+        {pass && <span className="loading"></span>}
       </form>
     </div>
   )

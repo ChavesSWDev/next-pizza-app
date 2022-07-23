@@ -23,13 +23,21 @@
     color: var(--font-white);
     font-weight: 600;
     padding: 15px 10px;
-    background: var(--secondary-color);
+    background: var(--btn-first-bg);
+    border: var(--btn-first-border);
 }
 
-.error {
+.msg {
     width: 100%;
     text-align: center;
     padding: 5px;
     font-size: 14px;
+}
+
+.error {
     color: red;
+}
+
+.pass {
+    color: forestgreen;
 }
