@@ -1,7 +1,10 @@
 .container {
-    width: 100vw;
-    height: 100vh;
-    top: 0;
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background: #fff6;
     position: fixed;
     z-index: 999;
@@ -9,7 +12,8 @@
     align-items: center;
     justify-content: center;
     color: var(--font-white);
-    overflow-y: scroll;
+    text-shadow: 1px 1px 1px #000;
+    font-size: calc(8px + 1vh);
 }
 
 .wrapper {
@@ -17,13 +21,13 @@
     width: 80%;
     padding: 20px;
     border-radius: 5px 40px 5px 5px;
-    background: #0f1111;
+    background: #0f1111c4;
     display: flex;
     flex-direction: column;
 }
 
 .addButton {
-    background: teal;
+    background: var(--btn-second-bg);
     color: var(-font-white);
     font-weight: 600;
     padding: 15px;
@@ -31,6 +35,7 @@
     min-width: 180px;
     text-align: center;
     cursor: pointer;
+    border: 1px solid teal;
     border-radius: 5px;
 }
 
@@ -40,7 +45,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: xx-large;
+    font-size: 1.75em;
     right: 0;
     top: 0;
     width: 60px;
@@ -58,10 +63,54 @@
 }
 
 .label{
+    width: 100%;
+    text-align: center;
     margin-top: 5px;
+    font-size: 1.15em;
+}
+
+.upload {
+    border-radius: 5px;
+    padding: 5px 10px;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid var(--secondary-color);
+    background: #0d0e0e;
+    color: var(--logo-yellow);
+}
+
+.upload::-webkit-file-upload-button {
+    position: absolute;
+    left: -99999px;
+}
+
+.container input[type="file"] {
+    padding-right: 20px;
+}
+
+.upload::before {
+  content: 'Select some files';
+  display: inline-block;
+  background: var(--btn-first-bg);
+  border: 1px solid var(--secondary-color);
+  border-radius: 3px;
+  padding: 5px 8px;
+  margin-right: 20px;
+  outline: none;
+  white-space: nowrap;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 10pt;
+}
+.upload:hover::before {
+    border: 1px solid #999;
+}
+.upload:active::before {
+  background-color: linear-gradient(to bottom, #e3e3e3, #f9f9f9);
 }
 
 .input {
+    border-radius: 5px;
     padding: 5px 10px;
     width: 100%;
     border: none;
@@ -75,20 +124,34 @@
 }
 
 .inputSm {
+    width: 30%;
+    margin-inline: 10%;
+}
+
+.extra {
+    display: flex;
+}
+.extraInput {
     width: 40%;
+    min-width: 80px;
     margin-inline: 5%;
+}
+.extraInput:first-child  {
+    min-width: 120px;
 }
 
 .extraButton {
     width: 100%;
-    margin: 5px 0 15px 0;
-    padding: 10px 0;
-    background: var(--secondary-color);
+    margin: 5px 0 0 0;
+    padding: 10px 10px;
+    background: var(--btn-first-bg);
+    border: 1px solid var(--secondary-color);
     font-weight: 600;
     color: var(--font-white);
 }
 
 .displayExtraOptions {
+    margin-top: 5px;
     color: var(--font-white);
     width: 100%;
     display: flex;
@@ -96,9 +159,34 @@
     flex-wrap: wrap;
 }
 .displayExtraItem {
-    padding: 1px 5px;
+    display: flex;
+    align-items: center;
+    padding: 3px 5px;
     border-radius: 5px;
     background: teal;
     margin: 0 5px 5px 5px;
     width: max-content;
+}
+
+.removeExtraBtn {
+    color: white;
+    background: var(--secondary-color);
+    width: 18px;
+    height: 18px;
+    font-size: 20px;
+    margin-left: 5px;
+    position: relative;
+}
+
+.removeExtraBtn span {
+    position: absolute;
+    top: 3px;
+    left: 6px;
+}
+/* for Edit.jsx component */
+.imgContainer {
+    display: flex;
+}
+.imgContainer * {
+    margin-inline: 10px;
 }
