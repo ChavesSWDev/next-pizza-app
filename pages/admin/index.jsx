@@ -1,17 +1,25 @@
 import styles from '../../styles/Admin.module.css'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import axios from 'axios'
+import Edit from '../../component/Edit'
 
 const Index = ({products, orders }) => {
+    const [open, setOpen] = useState(false)
+    const [update, setUpdate] = useState(null)
     const [pizzaList, setPizzaList] = useState(products)
     const [orderList, setOrderList] = useState(orders)
     const statusArr = ["Preparing", "On the way", "Delivered"]
 
+    const handleUpdate = (pizza) => {
+        setUpdate(pizza)
+        setOpen(true)
+    }
+ 
     const handleDelete = async (id) => {
         try {
             await axios.delete("http://localhost:3000/api/products/" +id)
-            setPizzaList(pizzaList.filter(pizza => pizza._id === id))
+            setPizzaList(pizzaList.filter(pizza => pizza._id !== id))
         } catch (err) {
             console.log(err);
         }
@@ -36,7 +44,7 @@ const Index = ({products, orders }) => {
             <div className={styles.item}>
                 <h1 className={styles.title}>Products </h1>
                 <table className={styles.table}>
-                    <tbody>
+                    <thead>
                         <tr>
                             <th>Image</th>
                             <th>Id</th>
@@ -44,7 +52,7 @@ const Index = ({products, orders }) => {
                             <th>Price</th>
                             <th>Action</th>
                         </tr>
-                    </tbody>
+                    </thead>
                     {pizzaList.map((product)=> (
                         <tbody className={styles.tbody} key={product._id} >
                             <tr className={styles.tr}>
@@ -55,7 +63,7 @@ const Index = ({products, orders }) => {
                                 <td><p>{product.title}</p></td>
                                 <td>[${product.prices[0].old}] ${product.prices[0].new}</td>
                                 <td>
-                                    <button className={styles.button}>Edit</button>
+                                    <button className={styles.button} onClick={() => handleUpdate(product)} >Edit</button>
                                     <button className={styles.button} onClick={() => handleDelete(product._id)}>Delete</button>                            
                                 </td>                                
                             </tr>
@@ -66,7 +74,7 @@ const Index = ({products, orders }) => {
             <div className={styles.item}>
                 <h1 className={styles.title}>Orders</h1>
                 <table className={styles.table}>
-                    <tbody>
+                    <thead>
                         <tr>
                             <th>Id</th>
                             <th>Customer</th>
@@ -75,7 +83,7 @@ const Index = ({products, orders }) => {
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
-                    </tbody >
+                    </thead >
                     {orderList.map((order) => (
                         <tbody className={styles.tbody} key={order._id} >
                             <tr className={styles.tr}>
@@ -97,6 +105,7 @@ const Index = ({products, orders }) => {
                     ))}
                 </table>
             </div>
+            {open &&  <Edit setOpen={setOpen} product={update} />}
         </section>
     )
 }
