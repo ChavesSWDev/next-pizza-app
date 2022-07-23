@@ -82,17 +82,26 @@
     align-items: center;
     padding: 15px;
     margin-bottom: 5px;
+    border-radius: 4px;
     font-weight: 600;
     color: teal;
-    background: white;
+    background: linear-gradient(to bottom, #f9f9f9, #e3e3e3);
+    border: 1px solid #f2f2f2;
 }
 
 .button {
     margin-top: 20px;
     height: 30px;
     width: 100%;
-    background: var(--secondary-color);
+    background: var(--btn-first-bg);
+    border: var(--btn-first-border);
     color: var(--font-white);
+}
+
+@media only screen and (max-width: 955px) {
+    .cashButton {
+        padding: 10px;
+    }
 }
 
 @media only screen and (max-width: 555px) {

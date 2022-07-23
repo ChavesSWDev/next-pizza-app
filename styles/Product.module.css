@@ -111,7 +111,8 @@
     top: -5px;
     font-size: 12px;
     padding: 1px 5px;
-    background: teal;
+    background: var(--btn-second-bg);
+    border: var(--btn-second-border);
     color: white;    
 }
 
@@ -147,7 +148,8 @@
 
 .button {
     border-radius: 5px;
-    background: var(--secondary-color);
+    background: var(--btn-first-bg);
+    border: var(--btn-first-border);
     color: var(--font-white);
     height: 30px;
     padding: 0 10px;

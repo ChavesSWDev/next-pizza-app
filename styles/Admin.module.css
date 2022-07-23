@@ -33,24 +33,28 @@
     display: flex;
 }
 
-.container button {
-    color: white;
-    background: var(--secondary-color);
-}
-
 .button {
     min-width: 79px;
+    color: white;
     margin-block: 2px;
     padding: 15px 5px;
 }
 
+.button:last-child {
+    background: var(--btn-first-bg);
+    border: var(--btn-first-border);
+}
+
 .button:first-child {
-    background: teal;
+    background: var(--btn-second-bg);
+    border: var(--btn-second-border);
     margin-right: 10px;
 }
 
 .stage {
-    background: var(--secondary-color);
+    color: white;
+    background: var(--btn-first-bg);
+    border: var(--btn-first-border);
     padding: 15px 20px;
 }
 

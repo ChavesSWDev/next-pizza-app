@@ -15,7 +15,7 @@
     align-items: center;
     color: var(--font-white);
     transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1);
-    box-shadow: 0 0 2px 5px rgb(0 0 0 / 0);
+    box-shadow: 0 0 5px 1px rgb(0 0 0 / 0);
     padding: 0 50px;
 }
 

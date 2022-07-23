@@ -9,11 +9,11 @@ import Link from "next/link";
 const Navbar = () => {
   const [clientWindowHeight, setClientWindowHeight] = useState("");
   const [backgroundTransparacy, setBackgroundTransparacy] = useState(0);
-  const [boxShadow, setBoxShadow] = useState(30);
+  const [boxShadow, setBoxShadow] = useState(0);
   const [textShadow, setTextShadow] = useState("0 1px 1px #0f1111");
   const [fontColor, setfontColor] = useState("#fff");
   const [clientWindowWidth, setClientWindowWidth] = useState();
-  const [menuStatus, setMenuStatus] = useState(0);
+  const [menuStatus, setMenuStatus] = useState(false);
   const [displayStatus, setDisplayStatus] = useState("none");
 
   const cartQuantity = useSelector(state => state.cart.quantity)
@@ -52,11 +52,6 @@ const Navbar = () => {
     setBoxShadow(clientWindowHeight / 3);
   }, [clientWindowHeight]);
 
-  const handleMenuStatus = () => {
-    if (menuStatus) return setMenuStatus(0);
-    setMenuStatus(1);
-  };
-
   const handleClientWidth = () => {
     const width = window.innerWidth;
     setClientWindowWidth(width);
@@ -87,13 +82,13 @@ const Navbar = () => {
       className={styles.container}
       style={{
         height: `${menuStatus ? "100vh" : "100px"}`,
+        boxShadow: `0 0 5px 1px rgb(0 0 0 / ${boxShadow}%)` ,
       }}
     >
       <section
         className={styles.menu}
         style={{ display: `${menuStatus ? "none" : "flex"}`,
         background: `rgba(212, 163, 115, ${backgroundTransparacy})`,
-        boxShadow: `0 0 1px 5px rgb(0 0 0 / ${boxShadow}%)`,
         textShadow: `${textShadow}`,
         color: `${fontColor}`,
        }}
@@ -127,10 +122,12 @@ const Navbar = () => {
         </div>
         <div className={styles.item}>
           <ul className={styles.list}>
-            <Link href="/" passHref >
+            <Link href="/" passHref>
               <li className={styles.listItem}>Homepage</li>
             </Link>
-            <li className={styles.listItem}>Products </li>
+            <Link href="/products" passHref>
+              <li className={styles.listItem}>Products </li>
+            </Link>
             <li className={styles.listItem}>Menu</li>
             <p className="logo">
               Alfonso
@@ -139,7 +136,9 @@ const Navbar = () => {
             </p>
             <li className={styles.listItem}>Events</li>
             <li className={styles.listItem}>Blog</li>
-            <li className={styles.listItem}>Contact</li>
+            <a target="_blank" href="https://github.com/cory-sydn" rel="noopener noreferrer">
+              <li className={styles.listItem}>Contact</li>
+            </a>
           </ul>
         </div>
         <div className={styles.item}>
@@ -158,7 +157,7 @@ const Navbar = () => {
             <Image
               className={styles.burger}
               src="/icons/burger-menu.svg"
-              onClick={handleMenuStatus}
+              onClick={() => setMenuStatus(true)}
               width={50}
               height={50}
               alt=""
@@ -166,12 +165,11 @@ const Navbar = () => {
           </div>
         </div>
       </section>
-      <div
-        className={styles.mobileMenu}
-        style={{ display: `${menuStatus ? "flex" : "none"}` }}
-      >
-        <MobileMenu prop={handleMenuStatus}/>
-      </div>
+      {menuStatus && 
+        <div className={styles.mobileMenu}>
+          <MobileMenu setMenuStatus={setMenuStatus}/>
+        </div>
+      }
     </div>
   );
 };

@@ -104,7 +104,8 @@
     height: 30px;
     width: 180px;
     font-weight: 600;
-    background: white;
+    background: linear-gradient(to bottom, #f9f9f9, #e3e3e3);
+    border: 1px solid #f2f2f2;
     color: teal;
 }
 
