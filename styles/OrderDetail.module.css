@@ -63,8 +63,8 @@
 .button {
     color: var(--font-white);
     font-weight: 600;
-    background: teal;
-    border: none;
+    background: var(--btn-second-bg);
+    border: var(--btn-second-border);
     padding: 12px 10px;    
     border-radius: 5px;
 }
