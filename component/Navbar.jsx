@@ -24,7 +24,7 @@ const Navbar = () => {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      if (global?.location?.href !== "http://localhost:3000/")
+      if (global?.location?.href !== "https://next-pizza-app.vercel.app/")
         return (
           setBackgroundTransparacy(1),
           setTextShadow("none"),

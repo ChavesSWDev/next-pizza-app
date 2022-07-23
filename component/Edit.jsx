@@ -69,7 +69,7 @@ const Edit = ({setOpen, product}) => {
                 prices: prices.length > 0 ? prices : product.prices,
                 extraOptions
             }
-            await axios.put(`http://localhost:3000/api/products/${product._id}`, updateProduct)
+            await axios.put(`https://next-pizza-app.vercel.app/api/products/${product._id}`, updateProduct)
             setOpen(false)
         } catch (err) {
             console.log(err);

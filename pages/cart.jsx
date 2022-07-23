@@ -23,7 +23,7 @@ const Cart = () => {
 
     const createOrder = async (data) => {
         try {
-            const res = await axios.post("http://localhost:3000/api/orders", data)
+            const res = await axios.post("https://next-pizza-app.vercel.app/api/orders", data)
             res.status === 201 && router.push("/orders/"+ res.data._id)
             dispatch(reset())
         } catch (err) {

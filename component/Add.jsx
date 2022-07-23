@@ -66,7 +66,7 @@ const Add = ({setOpen}) => {
                         ],
                 extraOptions
             }
-            await axios.post("http://localhost:3000/api/products", newProduct)
+            await axios.post("https://next-pizza-app.vercel.app/api/products", newProduct)
             setOpen(false)
         } catch (err) {
             console.log(err);
