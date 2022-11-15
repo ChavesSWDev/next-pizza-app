@@ -46,7 +46,7 @@
     object-fit: cover;
     object-position: center;
     border-radius: 10px 10px 0 0;
-    transition: all cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.7s;
+    transition: all cubic-bezier(0.175, 0.785, 0.08, .90) 0.7s;
 }
 
 .container:hover * .img {

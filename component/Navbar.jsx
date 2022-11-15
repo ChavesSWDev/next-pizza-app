@@ -5,7 +5,6 @@ import MobileMenu from "./MobileMenu";
 import { useSelector } from "react-redux";
 import Link from "next/link";
 
-
 const Navbar = () => {
   const [clientWindowHeight, setClientWindowHeight] = useState("");
   const [backgroundTransparacy, setBackgroundTransparacy] = useState(0);
@@ -48,7 +47,7 @@ const Navbar = () => {
 
     setTextShadow("0 1px 1px #0f1111");
     setfontColor("#fff");
-    setBackgroundTransparacy(clientWindowHeight);
+    setBackgroundTransparacy(clientWindowHeight / 1000);
     setBoxShadow(clientWindowHeight / 3);
   }, [clientWindowHeight]);
 
@@ -57,13 +56,13 @@ const Navbar = () => {
     setClientWindowWidth(width);
   };
 
-  useState(() => {
+  useEffect(() => {
     if (typeof window !== "undefined") {
       window.addEventListener("resize", handleClientWidth);
     }
     return () => window.removeEventListener("resize", handleClientWidth);
   });
-  useState(() => {
+  useEffect(() => {
     if (typeof window !== "undefined") {
       handleClientWidth()
     }
@@ -106,19 +105,18 @@ const Navbar = () => {
             <div className={styles.text}>ORDER NOW</div>
             <div className={styles.text}>020 3535 8888</div>
           </div>
-          <div
-            style={{
-              display: `${displayStatus}`,
-              marginLeft: 40,
-              marginBottom: 32,
-            }}
-          >
-            <p className="logo" style={{ display: `${displayStatus}` }}>
-              Alfonso
-              <br />
-              <span>'s pizza</span>
-            </p>
-          </div>
+          <Link href="/" passHref>
+            <div 
+              className={styles.narrowLogo}
+              style={{display: `${displayStatus}` }}
+            >
+              <p className="logo" style={{ display: `${displayStatus}` }}>
+                Alfonso
+                <br />
+                <span>'s pizza</span>
+              </p>
+            </div>
+          </Link>
         </div>
         <div className={styles.item}>
           <ul className={styles.list}>
@@ -129,11 +127,13 @@ const Navbar = () => {
               <li className={styles.listItem}>Products </li>
             </Link>
             <li className={styles.listItem}>Menu</li>
-            <p className="logo">
-              Alfonso
-              <br />
-              <span>'s pizza</span>
-            </p>
+            <Link href="/" passHref>
+              <p className="logo">
+                Alfonso
+                <br />
+                <span>'s pizza</span>
+              </p>
+            </Link>
             <li className={styles.listItem}>Events</li>
             <li className={styles.listItem}>Blog</li>
             <a target="_blank" href="https://github.com/cory-sydn" rel="noopener noreferrer">

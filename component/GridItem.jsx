@@ -10,12 +10,14 @@ const GridItem = ({pizza}) => {
       <Link href={`/product/${pizza._id}`} passHref>
         <div className={styles.wrapper}>
           <div className={styles.imgContainer}>
-              <Image className={styles.img} src={pizza.img}
-                alt=''
+              <Image 
+                className={styles.img} 
+                src={pizza.img}
+                alt={pizza.title}
                 layout='fill'
                 placeholder="blur"
-                blurDataURL='/images/1.jpg'
-                />
+                blurDataURL={"../public/dummy-pizza.jpeg"}
+              />
           </div>
           <p className={styles.price}>${pizza.prices[0].new} </p>
           <p className={styles.desc}>{pizza.desc}</p>

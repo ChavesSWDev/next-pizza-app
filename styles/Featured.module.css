@@ -3,7 +3,7 @@
     text-shadow: 1px 1px 1px rgb(0 0 0 / 70%);
     -webkit-text-size-adjust: 100%;
     margin-bottom: -100px;
-    background-color: #323232de;
+    background-color: rgba(255, 217, 120, 0.536);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,9 +11,10 @@
 
 .wrapper {
     width: 100%;
-    margin-top: -50px;
+    margin-top: -200px;
+    padding-top: 50px;
     padding-bottom: 100px;
-    height: calc(100vh - 100px);
+    height: 100vh;
     color: #f0ffff;
     display: flex;
     flex-direction: column;
@@ -21,6 +22,7 @@
     align-items: center;
     font-weight: 700;
     text-align: center;
+    position:relative;
 }
 
 .title {
@@ -62,8 +64,7 @@
 
 .arrow {
     filter: invert(90%) sepia(93%) hue-rotate(57deg) drop-shadow(0 1px 1px #0007);
-    background: rgba(240, 248, 255, 0.067);
-    border-radius: 5px;
+    background: rgba(184, 135, 11, 0.166);
     transform: scale(2);
     cursor: pointer;
 }
@@ -90,5 +91,14 @@
 @media only screen and (max-width: 655px) {
     .container {
         font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 445px) {
+    .mobiles {
+        margin-top: 0;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px 0;
     }
 }

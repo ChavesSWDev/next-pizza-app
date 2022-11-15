@@ -1,5 +1,5 @@
+import React, { useState } from 'react'
 import styles from '../../styles/Admin.module.css'
-import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import axios from 'axios'
 import Edit from '../../component/Edit'
