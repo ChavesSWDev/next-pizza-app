@@ -13,7 +13,6 @@ import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid'
 import OrderDetail from '../component/OrderDetail';
 
-
 const Cart = () => {
     const [open, setOpen] = useState(false)
     const [cash, setCash] = useState(false)
@@ -177,7 +176,7 @@ const Cart = () => {
             </div>
         </div>
         {cash && (
-            <OrderDetail total={amount} createOrder={createOrder} />
+            <OrderDetail total={amount} createOrder={createOrder} setCash={setCash} />
         )}
     </div>
   )

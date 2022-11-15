@@ -46,18 +46,18 @@
     margin-top: 50px;
 }
 
-.cross {
+.return {
     position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: larger;
-    top: 40px;
-    right: 50px;
+    display: grid;
+    place-content: center;
+    top: 30px;
+    right: 55px;
     width: 40px;
     height: 40px;
     border-radius: 50%;
     background: #0009;
+    cursor: pointer;
+    z-index: 2;
 }
 
 @-webkit-keyframes scale-in-hor-left {
@@ -90,5 +90,11 @@
     -webkit-transform-origin: 100% 0%;
             transform-origin: 100% 0%;
     opacity: 1;
+    }
+}
+
+@media only screen and (max-width: 445px) {
+    .return {
+        right: 35px;
     }
 }

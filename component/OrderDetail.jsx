@@ -1,7 +1,8 @@
 import styles from '../styles/OrderDetail.module.css'
-import React, { useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
+import {GameIconsReturnArrow} from '../public/icons/return'
 
-const OrderDetail = ({total, createOrder}) => {
+const OrderDetail = ({total, createOrder, setCash}) => {
     const [customer, setCustomer] = useState("")
     const [address, setAddress] = useState("")
     const [loading, setLoading] = useState(false)
@@ -14,10 +15,30 @@ const OrderDetail = ({total, createOrder}) => {
         setLoading(true)
     }
 
+    const handleReturn = () => {
+        setCash(false)
+    }
+
+    const handleKeyDown = useCallback((e) => {
+        if (e.key === "Escape") handleReturn();
+    },[setCash]);
+
+    useEffect(() => {
+		window.addEventListener("keydown", handleKeyDown);
+		return () => {
+			window.removeEventListener("keydown", handleKeyDown);
+		};
+	}, [handleKeyDown]);
+
     return (
         <section className={styles.container}>
             <form className={styles.wrapper} onSubmit={(e) => e.preventDefault()} >
-                <h1 className={styles.title}>You Will Pay <i>${total}</i> On Delivery</h1>
+                <span className={styles.return} onClick={handleReturn}>
+                    <GameIconsReturnArrow />
+                </span>
+                <h1 className={styles.title}>You Will Pay <i>
+                        <span style={{fontSize:18}} >$</span>{total}
+                    </i> On Delivery</h1>
                 <div className={styles.item}>
                     <label className={styles.label} htmlFor="user-info">Name and Surname </label>
                     <input className={styles.input} 
